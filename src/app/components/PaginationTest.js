@@ -5,7 +5,7 @@ import BoardTitle from "@/app/components/ui/BoardTitle";
 async function getBoards(page) {
     try {
         const apiUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
-        const res = await fetch(`${apiUrl}board/?page=${page}`, {cache: "no-store"});
+        const res = await fetch(`https://back.dangwoo.shop/api/board/?page=${page}`, {cache: "no-store"});
 
         if (!res.ok) {
             const error = await res.json();
@@ -18,13 +18,9 @@ async function getBoards(page) {
     }
 }
 
-export default async function BoardList({ page}) {
+export default async function BoardList({page}) {
     const boardPage = await getBoards(page);
-    
-    if (!boardPage) {
-        return <div>데이터를 불러올 수 없습니다.</div>;
-    }
-    
+
     const boards = boardPage.content;
 
     return (

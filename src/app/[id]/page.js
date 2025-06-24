@@ -11,7 +11,7 @@ import Comment from "@/app/components/Comment";
 async function getBoardById(id) {
     try {
         const apiUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
-        const res = await fetch(`${apiUrl}board/${parseInt(id)}`, {cache: "no-store"});
+        const res = await fetch(`https://back.dangwoo.shop/api/board/${parseInt(id)}`, {cache: "no-store"});
 
         const data = await res.json();
         if (!res.ok) {
