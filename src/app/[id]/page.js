@@ -43,6 +43,7 @@ export default async function Page({params}) {
                 <Button text="수정하기"/>
             </Link>
 
+
         </div>
         <div className="border-2 border-gray-300 p-4 my-4 w-2xl">
             <p>게시글 번호: {id}</p>
